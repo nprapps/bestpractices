@@ -33,9 +33,10 @@
 * Declare only a single variable on one line.
 * End all statements with a semicolon.
 * Use spaces after opening and before closing braces and brackets in array and object definitions, i.e. ``{ foo: [ 1, 2, 3 ] }`` not ``{foo:[1,2,3]}``.
+* Do not use spaces after opening or before closing parentheses, i.e. ``if (foo == true) {`` and not ``if ( foo == true ) {``. 
 * When accessing properties of a data structure (such as one retrieved using ``getJSON``) prefer bracket syntax (``data["property"]``) to attribute syntax (``data.property``).
 * Very frequent property references should be cached, i.e. ``var array_length = array.length;``.
-* Use ``===`` rather than ``==``.
+* Use ``===`` rather than ``==``. ([Why?](http://www.impressivewebs.com/why-use-triple-equals-javascipt/))
 * **Use single-quotes for strings.**
 
 ### Libraries
