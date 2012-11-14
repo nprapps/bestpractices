@@ -25,13 +25,18 @@
 
 ### General
 
+* Use 4-spaces for indentation (because it's easier to be consistent with Python than switch your editor back and forth).
 * Javascript variables names should always be ``lowercase_with_underscores``.
 * Static variables and configuration parameters should be in ``TITLECASE_WITH_UNDERSCORES``.
 * All global variables should be defined at the top of the file.
 * All variables should be constrained to the current scope with ``var``.
+* Declare only a single variable on one line.
+* End all statements with a semicolon.
+* Use spaces after opening and before closing braces and brackets in array and object definitions, i.e. ``{ foo: [ 1, 2, 3 ] } not ``{foo:[1,2,3]}``.
 * When accessing properties of a data structure (such as one retrieved using ``getJSON``) prefer bracket syntax (``data["property"]``) to attribute syntax (``data.property``).
 * Very frequent property references should be cached, i.e. ``var array_length = array.length;``.
-* **Use double-quotes for strings.**
+* Use ``===`` rather than ``==``.
+* **Use single-quotes for strings.**
 
 ### Libraries
 
