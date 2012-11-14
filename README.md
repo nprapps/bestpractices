@@ -1,4 +1,4 @@
-# NPR Apps' Best Practices and Style Guide
+# NPR Apps' Best Practices and Coding Conventions
 
 
 
@@ -66,7 +66,7 @@ For consistency, prefer the following libraries to others that perform similar t
 For consistency, prefer the following libraries to others that perform similar tasks:
 
 * [Fabric](http://docs.fabfile.org/)
-* [Django](https://www.djangoproject.com/] OR (Flask)[http://flask.pocoo.org/)
+* [Django](https://www.djangoproject.com/) OR [Flask](http://flask.pocoo.org/)
 * [boto](https://github.com/boto/boto)
 * [pytz](http://pytz.sourceforge.net/)
 * [psycopg2](http://www.initd.org/psycopg/)
