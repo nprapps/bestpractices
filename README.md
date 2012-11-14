@@ -43,9 +43,9 @@
 For consistency, prefer the following libraries to others that perform the same tasks:
 
 * [jQuery](http://jquery.com/)
-* [Underscore](http://documentcloud.github.com/underscore/) (where Underscore and jQuery overlap, i.e. ``each()``, prefer Underscore)
+* [Underscore.js](http://documentcloud.github.com/underscore/) (where Underscore and jQuery overlap, i.e. ``each()``, prefer Underscore)
 * [Bootstrap](http://twitter.github.com/bootstrap/)
-* [Moment](http://momentjs.com/)
+* [Moment.js](http://momentjs.com/)
 
 ### jQuery-specific
 
@@ -72,7 +72,7 @@ For consistency, prefer the following libraries to others that perform the same 
 For consistency, prefer the following libraries to others that perform the same tasks:
 
 * [Fabric](http://docs.fabfile.org/)
-* [Django](https://www.djangoproject.com/) OR [Flask](http://flask.pocoo.org/)
+* [Django](https://www.djangoproject.com/) **or** [Flask](http://flask.pocoo.org/)
 * [boto](https://github.com/boto/boto)
 * [pytz](http://pytz.sourceforge.net/)
 * [psycopg2](http://www.initd.org/psycopg/)
