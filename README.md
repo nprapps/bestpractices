@@ -86,7 +86,7 @@ For consistency, prefer the following libraries to others that perform the same 
 * Always use ``with`` when accessing resources that need to be closed.
 * Always access blocking resources (files, databases) as little as possible.
 * When accessing a dictionary element that may not exist, use ``get()``. For example, ``os.environ.get('DEPLOYMENT_TARGET', None)``.
-* Project settings should be isolated in ``settings.py`` (whether by Django or manually). ``fabfile.py`` should import settings from this file to prevent duplication.
+* Project settings that will be used by both fabric and other code should be isolated in ``app_config.py``. ``fabfile.py`` and Django's ``settings.py`` should import from this file to prevent duplication.
 * Imports should be organized into three blocks: stdlib modules, third-party modules and our own modules. Each group should be alphabetized.
 
 
