@@ -35,10 +35,11 @@
 
 ### Libraries
 
-For consistency, prefer the following libraries to others that perform similar tasks:
+For consistency, prefer the following libraries to others that perform the same tasks:
 
 * [jQuery](http://jquery.com/)
 * [Underscore](http://documentcloud.github.com/underscore/) (where Underscore and jQuery overlap, i.e. ``each()``, prefer Underscore)
+* [Bootstrap](http://twitter.github.com/bootstrap/)
 * [Moment](http://momentjs.com/)
 
 ### jQuery-specific
@@ -63,7 +64,7 @@ For consistency, prefer the following libraries to others that perform similar t
 
 ### Libraries
 
-For consistency, prefer the following libraries to others that perform similar tasks:
+For consistency, prefer the following libraries to others that perform the same tasks:
 
 * [Fabric](http://docs.fabfile.org/)
 * [Django](https://www.djangoproject.com/) OR [Flask](http://flask.pocoo.org/)
