@@ -51,8 +51,8 @@ For consistency, prefer the following libraries to others that perform the same 
 
 ### jQuery-specific
 
-* jQuery references that are used more than once should be cached. Postfix these references with ``_el`` or ``_els``, i.e. ``var electris_el = $("#electris");``.
-* Whenever possible constrain jQuery DOM lookups within the scope of a cached element. For example, ``electris_el.find(".candidate")`` is preferable to ``$(".candidate")``.
+* jQuery references that are used more than once should be cached. Prefix these references with ``$``, i.e. ``var $electris = $("#electris");``.
+* Whenever possible constrain jQuery DOM lookups within the scope of a cached element. For example, ``$electris.find(".candidate")`` is preferable to ``$(".candidate")``.
 * Always use [on](http://api.jquery.com/on/), never [bind](http://api.jquery.com/bind/), [delegate](http://api.jquery.com/delegate/) or [live](http://api.jquery.com/live/). ``on`` should also be preferred to "verb events", such as [click](http://api.jquery.com/click/).
 
 ### Underscore-specific
