@@ -90,6 +90,7 @@ For consistency, prefer the following libraries to others that perform the same 
 * When accessing a dictionary element that may not exist, use ``get()``. For example, ``os.environ.get('DEPLOYMENT_TARGET', None)``.
 * Project settings that will be used by both fabric and other code should be isolated in ``app_config.py``. ``fabfile.py`` and Django's ``settings.py`` should import from this file to prevent duplication.
 * Imports should be organized into three blocks: stdlib modules, third-party modules and our own modules. Each group should be alphabetized.
+* Avoid ``from foo import *``. It is the mindkiller.
 
 
 
