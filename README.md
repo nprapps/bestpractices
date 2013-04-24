@@ -2,14 +2,15 @@
 
 The contents of this repository are released under a [Creative Commons CC BY 3.0 License](http://creativecommons.org/licenses/by/3.0/deed.en_US).
 
+**Note:** These best practices reference the [app-template](http://github.com/nprapps/app-template) in several places and generally assumes you are using it.
 
 ## Projects
 
 ### READMEs
 
-* Document steps to setup the project from a blank slate.
-* Document any required environment variables.
-* Document any cron jobs that must be installed on the servers.
+* Document steps to setup the project from a blank slate. (Data loading, etc.) This should include paths to files stored in Dropbox when relevant.
+* Document any required environment variables. If these are secrets they should also be stored in the team Dropbox.
+* Document any cron jobs that must be installed on the servers. In the app-template this just means using the `crontab` file in the project root.
 
 
 
@@ -17,8 +18,7 @@ The contents of this repository are released under a [Creative Commons CC BY 3.0
 
 * Element IDs and class names should always be ``lowercase-with-dashes``.
 * Multi-part IDs and class names should always proceed from more general to more specific. For example, ``electris-skinny`` is better than ``skinny-electris``.
-* Add CSS and Javascript to the asset compressor (e.g. ``assets_env.py``) instead of the HTML.
-* Put all modals in the footer, followed by all javascript templates.
+* Put modals and JST templates in their own files. In the app-template these belong in the `templates` and `jst` directories, respectively. When this isn't feasible, put modals in the page footer first, followed by inline javascript templates.
 
 
 
@@ -26,7 +26,7 @@ The contents of this repository are released under a [Creative Commons CC BY 3.0
 
 ### General
 
-* Use 4-spaces for indentation (because it's easier to be consistent with Python than switch your editor back and forth).
+* Use 4-spaces for indentation (because it's easier to be consistent with Python than it is to switch your editor back and forth).
 * Javascript variables names should always be ``lowercase_with_underscores``.
 * Static variables and configuration parameters should be in ``TITLECASE_WITH_UNDERSCORES``.
 * All global variables should be defined at the top of the file.
@@ -44,20 +44,17 @@ The contents of this repository are released under a [Creative Commons CC BY 3.0
 
 For consistency, prefer the following libraries to others that perform the same tasks:
 
-* [jQuery](http://jquery.com/)
-* [Underscore.js](http://documentcloud.github.com/underscore/) (where Underscore and jQuery overlap, i.e. ``each()``, prefer Underscore)
-* [Bootstrap](http://twitter.github.com/bootstrap/)
-* [Moment.js](http://momentjs.com/)
+* [jQuery](http://jquery.com/) for DOM manipulation
+* [Underscore.js](http://documentcloud.github.com/underscore/) for functional programming (where Underscore and jQuery overlap, i.e. ``each()``, prefer Underscore)
+* [Bootstrap](http://twitter.github.com/bootstrap/) for responsiveness
+* [Moment.js](http://momentjs.com/) for datetime handling
+* [jPlayer](http://jplayer.org/) for audio/video playback
 
 ### jQuery-specific
 
 * jQuery references that are used more than once should be cached. Prefix these references with ``$``, i.e. ``var $electris = $("#electris");``.
 * Whenever possible constrain jQuery DOM lookups within the scope of a cached element. For example, ``$electris.find(".candidate")`` is preferable to ``$(".candidate")``.
 * Always use [on](http://api.jquery.com/on/), never [bind](http://api.jquery.com/bind/), [delegate](http://api.jquery.com/delegate/) or [live](http://api.jquery.com/live/). ``on`` should also be preferred to "verb events", such as [click](http://api.jquery.com/click/).
-
-### Underscore-specific
-
-* Always precompile your templates on page load, i.e. ``var STATE_TEMPLATE = _.template($("#state-template").html());``.
 
 
 
@@ -73,13 +70,13 @@ For consistency, prefer the following libraries to others that perform the same 
 
 For consistency, prefer the following libraries to others that perform the same tasks:
 
-* [Fabric](http://docs.fabfile.org/)
-* [Django](https://www.djangoproject.com/) **or** [Flask](http://flask.pocoo.org/)
-* [boto](https://github.com/boto/boto)
-* [pytz](http://pytz.sourceforge.net/)
-* [psycopg2](http://www.initd.org/psycopg/)
-* [lxml](http://lxml.de/)
-* [Requests](http://docs.python-requests.org/en/latest/)
+* [Fabric](http://docs.fabfile.org/) for project tasks
+* [Flask](http://flask.pocoo.org/) for light web apps **or** [Django](https://www.djangoproject.com/) for heavy web apps 
+* [boto](https://github.com/boto/boto) for accessing AWS programmatically
+* [pytz](http://pytz.sourceforge.net/) for manipulating timezones
+* [psycopg2](http://www.initd.org/psycopg/) for accessing Postgres
+* [lxml](http://lxml.de/) for XML/DOM manipulation
+* [Requests](http://docs.python-requests.org/en/latest/) for working over HTTP
 
 ### Specifics
 
@@ -99,7 +96,6 @@ For consistency, prefer the following libraries to others that perform the same 
 * Development of major features should happen on separate branches which periodically merge *from* ``master`` until development of the feature is complete.
 * A ``stable`` branch should always be present and should merge *from* ``master``, only when deploying to production.
 * Don't store binary files (comps, databases) in the repository.
-* If a binary object needs to be shared store it in Dropbox or on S3. If it is part of the setup process (e.g. a database backup) then use fabric commands to read and write it.
+* If a binary object needs to be shared then store it in Dropbox or on S3. If it is part of the setup process (e.g. a database backup) then use fabric commands to read and write it.
 * **Never, ever store passwords, keys or credentials in any repository.** (Use environment variables instead.)
-
 
