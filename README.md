@@ -2,7 +2,7 @@
 
 The contents of this repository are released under a [Creative Commons CC BY 3.0 License](http://creativecommons.org/licenses/by/3.0/deed.en_US).
 
-**Note:** These best practices reference the [app-template](http://github.com/nprapps/app-template) in several places and generally assumes you are using it.
+**Note:** These best practices reference the [app-template](http://github.com/nprapps/app-template) in several places and generally assume you are using it.
 
 ## Projects
 
