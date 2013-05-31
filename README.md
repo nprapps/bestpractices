@@ -100,3 +100,8 @@ For consistency, prefer the following libraries to others that perform the same 
 * If a binary object needs to be shared then store it in Dropbox or on S3. If it is part of the setup process (e.g. a database backup) then use fabric commands to read and write it.
 * **Never, ever store passwords, keys or credentials in any repository.** (Use environment variables instead.)
 
+
+
+## Servers
+
+* Environment variables belong in `/etc/environment`. This file should be sourced by cron jobs. (This happens automatically when using `cron.sh`.)
