@@ -28,12 +28,12 @@ Naming things (variables, files, classes, etc.) consistently and intuitively is 
 
 <table>
   <tr><th>Prefer...</th><th>to...</th></tr>
-  <tr><td>`create`</td><td>`insert`, `add`, `new`</td></tr>
-  <tr><td>`update`</td><td>`change`, `edit`</td></tr>
-  <tr><td>`delete`</td><td>`remove`, `purge`</td></tr>
-  <tr><td>`setup`</td><td>`init`</td></tr>
-  <tr><td>`make`</td><td>`build`</td></tr>
-  <tr><td>`wrapper`</td><td>`wrap`</td></tr>
+  <tr><td>create</td><td>insert, add, new</td></tr>
+  <tr><td>update</td><td>change, edit</td></tr>
+  <tr><td>delete</td><td>remove, purge</td></tr>
+  <tr><td>setup</td><td>init</td></tr>
+  <tr><td>make</td><td>build</td></tr>
+  <tr><td>wrapper</td><td>wrap</td></tr>
 </table>  
 
 (Note: sometimes these words don't mean the same thing, but when they do, prefer the former.)
