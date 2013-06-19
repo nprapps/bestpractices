@@ -20,17 +20,24 @@ The contents of this repository are released under a [Creative Commons CC BY 3.0
 Naming things (variables, files, classes, etc.) consistently and intuitively is one of the hardest problems in computer science. To make it easier, follow these conventions:
 
 * Always proceed from more general to more specific. For example, ``electris-skinny`` is better than ``skinny-electris``.
-* Strive for parallelism. If you have a `begin()` function, then have an `end()` function (not `stop` or `done`).
+* Strive for parallelism. If you have a `begin()` function, then have an `end()` function (not `stop()` or `done()`).
 * Group related names with common prefixes, e.g. `search_query` and `search_address`.
 * Prefer more specific terms to more vague ones. If it's an address call it `address`, not `location`.
-* When a function operates on a variable, their naming should be consistent. If working with `updates` then `process_updates()`, don't `apply_changes()`. 
+* When a function operates on a variable, their naming should be consistent. If working with `updates` then `process_updates()`, don't `process_changes()`. 
 * Maintain naming conventions between iterables and their iterators: `for update in updates`, not `for record in updates`.
-* Prefer `create` to `insert`, `add`, or `new`. (Note that sometimes these words don't mean the same thing, but when they do, prefer the former.) 
-* Prefer `update` to `change` or `edit`.
-* Prefer `delete` to `remove` or `purge`.
-* Prefer `setup` to `init`.
-* Prefer `make` to `build`.
-* Prefer `wrapper` to `wrap`.
+
+<table>
+  <tr><th>Prefer...</th><th>to...</th></tr>
+  <tr><td>`create`</td><td>`insert`, `add`, `new`</td></tr>
+  <tr><td>`update`</td><td>`change`, `edit`</td></tr>
+  <tr><td>`delete`</td><td>`remove`, `purge`</td></tr>
+  <tr><td>`setup`</td><td>`init`</td></tr>
+  <tr><td>`make`</td><td>`build`</td></tr>
+  <tr><td>`wrapper`</td><td>`wrap`</td></tr>
+</table>  
+
+(Note: sometimes these words don't mean the same thing, but when they do, prefer the former.)
+
 
 
 ## HTML & CSS
