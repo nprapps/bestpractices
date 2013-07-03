@@ -54,6 +54,7 @@ Naming things (variables, files, classes, etc.) consistently and intuitively is 
 * Use 4-spaces for indentation (because it's easier to be consistent with Python than it is to switch your editor back and forth).
 * Javascript variables names should always be ``lowercase_with_underscores``.
 * Static variables and configuration parameters should be in ``TITLECASE_WITH_UNDERSCORES``.
+* Named functions should look like this ``var camelCase = function() {}``.
 * All global variables should be defined at the top of the file.
 * All variables should be constrained to the current scope with ``var``.
 * Declare only a single variable on one line.
