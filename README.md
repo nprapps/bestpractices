@@ -34,6 +34,7 @@ Naming things (variables, files, classes, etc.) consistently and intuitively is 
   <tr><td>setup</td><td>init</td></tr>
   <tr><td>make</td><td>build</td></tr>
   <tr><td>wrapper</td><td>wrap</td></tr>
+  <tr><td>render</td><td>draw</td></tr>
 </table>  
 
 (Note: sometimes these words don't mean the same thing, but when they do, prefer the former.)
