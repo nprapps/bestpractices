@@ -32,7 +32,7 @@ Naming things (variables, files, classes, etc.) consistently and intuitively is 
   <tr><td>update</td><td>change, edit</td></tr>
   <tr><td>delete</td><td>remove, purge</td></tr>
   <tr><td>setup</td><td>init</td></tr>
-  <tr><td>make</td><td>build</td></tr>
+  <tr><td>make</td><td>build, generate</td></tr>
   <tr><td>wrapper</td><td>wrap</td></tr>
   <tr><td>render</td><td>draw</td></tr>
 </table>  
