@@ -2,7 +2,7 @@ Staff
 -----
 
 * Add to team Google Drive folder
-* Add to team Dropbox folder
+* Add to team Dropbox folder (Brian can do this)
 * Add to Owners and "News apps!" teams on Github
 * Create Hipchat user account (Danny can do this)
 * Configure Github/SSH credentials and install on servers (for deployment to EC2)
@@ -13,7 +13,7 @@ Interns
 -------
 
 * Add to team Google Drive folder
-* Add to team Dropbox Folder
+* Add to team Dropbox Folder (Brian can do this)
 * Add to "News apps!" team on Github
 * Create Hipchat user account (Danny can do this)
 * Configure Github/SSH credentials and install on servers (for deployment to EC2)
