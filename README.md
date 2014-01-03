@@ -24,7 +24,7 @@ Naming things (variables, files, classes, etc.) consistently and intuitively is 
 * Group related names with common prefixes, e.g. `search_query` and `search_address`.
 * Prefer more specific terms to more vague ones. If it's an address call it `address`, not `location`.
 * When a function operates on a variable, their naming should be consistent. If working with `updates` then `process_updates()`, don't `process_changes()`. 
-* Maintain naming conventions between iterables and their iterators: `for update in updates`, not `for record in updates`.
+* Maintain naming conventions between lists and their iterators: `for update in updates`, not `for record in updates`.
 
 <table>
   <tr><th>Prefer...</th><th>to...</th></tr>
@@ -130,4 +130,4 @@ For consistency, prefer the following libraries to others that perform the same 
 
 ## Servers
 
-* Environment variables belong in `/etc/environment`. This file should be sourced by cron jobs. (This happens automatically when using `cron.sh`.)
+* Environment variables belong in `/etc/environment`. This file should be sourced by cron jobs. (This happens automatically when using `run_on_server.sh`.)
