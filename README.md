@@ -4,14 +4,24 @@ The contents of this repository are released under a [Creative Commons CC BY 3.0
 
 **Note:** These best practices reference the [app-template](http://github.com/nprapps/app-template) in several places and generally assume you are using it.
 
-## Projects
+## Index
 
-### READMEs
+* [Project documentation](#project-documentation)
+* [Naming things](#naming-things)
+* [Version control](#version-control)
+* [Servers](#servers)
+* [HTML and CSS](#html-and-css)
+* [Javascript](#javascript)
+* [Python](#python)
 
-* Document steps to setup the project from a blank slate. (Data loading, etc.) This should include paths to files stored in Dropbox when relevant.
-* Document any required environment variables. If these are secrets they should also be stored in the team Dropbox.
-* Document any cron jobs that must be installed on the servers. In the app-template this just means using the `crontab` file in the project root.
-* Document any server dependencies that are not part of our standard stack. This includes documenting how to install them. Whenever feasible this documentation should be in the form of `fab` commands.
+## Project documentation
+
+Always ensure the following things are documented in the README:
+
+* Steps to setup the project from a blank slate. (Data loading, etc.)
+* Required environment variables. If these are secrets they should also be stored in the team Dropbox.
+* Cron jobs that must be installed on the servers. When using the app-template specifying these in the `crontab` file is sufficient.
+* Dependencies that are not part of our standard stack. This includes documenting how to install them. Whenever feasible this documentation should be in the form of `fab` commands.
 
 
 
@@ -40,25 +50,7 @@ Naming things (variables, files, classes, etc.) consistently and intuitively is 
 (Note: sometimes these words don't mean the same thing, but when they do, prefer the former.)
 
 
-
-## HTML & CSS
-
-* Element IDs and class names should always be ``lowercase-with-dashes``.
-* Put modals and JST templates in their own files. In the app-template these belong in the `templates` and `jst` directories, respectively. When this isn't feasible, put modals in the page footer first, followed by inline javascript templates.
-
-
-
-## Javascript
-
-See [javascript.md](https://github.com/nprapps/bestpractices/blob/master/javascript.md)
-
-
-## Python
-
-See [python.md](https://github.com/nprapps/bestpractices/blob/master/python.md)
-
-
-## git
+## Version control
 
 * Development of major features should happen on separate branches which periodically merge *from* ``master`` until development of the feature is complete.
 * A ``stable`` branch should always be present and should merge *from* ``master``, only when deploying to production.
@@ -70,4 +62,25 @@ See [python.md](https://github.com/nprapps/bestpractices/blob/master/python.md)
 
 ## Servers
 
-* Environment variables belong in `/etc/environment`. This file should be sourced by cron jobs. (This happens automatically when using `run_on_server.sh`.)
+* Environment variables belong in `/etc/environment`. This file should be sourced by cron jobs. (This happens automatically when using `run_on_server.sh`.)# git
+
+
+
+## HTML and CSS
+
+See [html_and_css.md](https://github.com/nprapps/bestpractices/blob/master/html_and_css.md).
+
+
+
+## Javascript
+
+See [javascript.md](https://github.com/nprapps/bestpractices/blob/master/javascript.md).
+
+
+
+## Python
+
+See [python.md](https://github.com/nprapps/bestpractices/blob/master/python.md).
+
+
+
