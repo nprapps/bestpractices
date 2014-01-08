@@ -1,4 +1,4 @@
-# NPR Apps' Best Practices and Coding Conventions
+# NPR Visuals' Best Practices
 
 The contents of this repository are released under a [Creative Commons CC BY 3.0 License](http://creativecommons.org/licenses/by/3.0/deed.en_US).
 
