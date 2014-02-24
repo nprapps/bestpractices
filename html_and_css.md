@@ -7,7 +7,7 @@
 
 * Use Bootstrap's [LESS mixins](http://getbootstrap.com/css/#grid-less) for constructing a grid. Never use row and column classes in your HTML so that we can keep things semantic. For example, a basic text block would look like this:
 
-`HTML`:
+HTML:
 
 ```
 <div class="text-wrapper">
@@ -17,7 +17,7 @@
 </div>
 ```
 
-`LESS`:
+LESS:
 
 ```
 .text-wrapper {
