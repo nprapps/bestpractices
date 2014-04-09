@@ -6,6 +6,7 @@
 * Javascript variables names should always be ``camelCase`` (not ``snake_case``).
 * Static variables and configuration parameters should be in ``TITLECASE_WITH_UNDERSCORES``.
 * Named functions should look like this ``var functionName = function() {}``.
+* Event handlers should be named `on` + the name of the event generator + the event name, for example `onDocumentLoad`, `onWindowResize` and `onGoButtonClick`.
 * All global variables should be defined at the top of the file.
 * All variables should be constrained to the current scope with ``var``.
 * Declare only a single variable on one line.
