@@ -13,6 +13,7 @@ The contents of this repository are released under a [Creative Commons CC BY 3.0
 * [HTML and CSS](#html-and-css)
 * [Javascript](#javascript)
 * [Python](#python)
+* [Assets](#assets)
 
 ## Project documentation
 
@@ -83,4 +84,8 @@ See [javascript.md](https://github.com/nprapps/bestpractices/blob/master/javascr
 See [python.md](https://github.com/nprapps/bestpractices/blob/master/python.md).
 
 
+
+## Assets
+
+See [assets.md](https://github.com/nprapps/bestpractices/blob/master/assets.md).
 
