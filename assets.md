@@ -26,10 +26,10 @@
 ### Audio
 
 * Audio should be encoded as OGG (for Firefox) and MP3 (for other browsers).
-* Music should be encoded as 128bps stereo:
+* Music should be encoded as 128bps CBR Stereo:
     * MP3: `lame -m s -b 128 input.wav output.mp3`
     * OGG: `oggenc -m 128 -M 128 -o output.oga input.wav`
-* Voice should be encoded as 96bps mono:
+* Voice should be encoded as 96bps CBR Mono:
     * MP3: `lame -m m -b 96 input.wav output.mp3`
     * OGG: `oggenc -m 96 -M 96 -o output.oga input.wav`
 
