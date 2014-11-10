@@ -31,4 +31,4 @@ For consistency, prefer the following libraries to others that perform the same 
 
 ### Flask
 
-All views should return with ``make_response``.
+* All views should return with ``make_response``.
