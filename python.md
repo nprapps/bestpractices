@@ -29,3 +29,6 @@ For consistency, prefer the following libraries to others that perform the same 
 * Imports should be organized into three blocks: stdlib modules, third-party modules and our own modules. Each group should be alphabetized.
 * Avoid ``from foo import *``. It is the mindkiller.
 
+### Flask
+
+All views should return with ``make_response``.
