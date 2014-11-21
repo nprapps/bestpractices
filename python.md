@@ -28,6 +28,7 @@ For consistency, prefer the following libraries to others that perform the same 
 * Project settings that will be used by both fabric and other code should be isolated in ``app_config.py``. ``fabfile.py`` and Django's ``settings.py`` should import from this file to prevent duplication.
 * Imports should be organized into three blocks: stdlib modules, third-party modules and our own modules. Each group should be alphabetized.
 * Avoid ``from foo import *``. It is the mindkiller.
+* Functions that are de facto "private" (only called within a module or only called within a class) should be prefixed with a single `_`, e.g. `_slugify`.
 
 ### Flask
 
