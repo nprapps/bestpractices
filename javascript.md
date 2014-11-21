@@ -33,4 +33,5 @@ For consistency, prefer the following libraries to others that perform the same 
 * jQuery references that are used more than once should be cached. Prefix these references with ``$``, i.e. ``var $electris = $('#electris');``.
 * Whenever possible constrain jQuery DOM lookups within the scope of a cached element. For example, ``$electris.find('.candidate')`` is preferable to ``$('.candidate')``.
 * Always use [on](http://api.jquery.com/on/), never [bind](http://api.jquery.com/bind/), [delegate](http://api.jquery.com/delegate/) or [live](http://api.jquery.com/live/). ``on`` should also be preferred to "verb events", such as [click](http://api.jquery.com/click/).
-
+* When an event needs to occur for elements which may or may not yet exist, use `on` in delegated/bubble mode, rather than binding and unbinding events as elements are created and destroyed. For example: `$wrapper.on('click', '.item', onItemClick)`
+* When using `on` for delegated/bubbled events, always use the *nearest* container div. Do not use `$body` to capture events from anywhere as this degrades performance.
