@@ -17,7 +17,7 @@ The TL;DR of our style:
 
 On the topic of clarity, one place where it is important to be clear is when doing typecasting to and from primitive values. For these, rather than the shorthand operators, it's better to spell out the conversion explicitly. 
 
-```
+```js
 // not this:
 var n = +n;
 var s = s + "";
@@ -46,7 +46,7 @@ Use these if you're comfortable with them. `var` remains acceptable, if you unde
 
 Arrow functions should primarily be used in two cases: when we want to preserve the value of `this`, or when the function is a single expression. The latter case is particularly useful in D3, or for `map` and `reduce`. If the body expands to multiple lines, or if you need to return an object, use a regular function expression.
 
-```
+```js
 // use arrows for short, pure functions
 d3Container
   .select("rect")
@@ -81,7 +81,7 @@ Likewise, when creating objects, it's preferable to name your variables to match
 
 Use spread instead of `Function.apply` when calling a function with multiple arguments, as it's more readable and doesn't have concerns about assigning the context object. You can also use the object spread instead of `Object.assign()` for combining objects, as it avoids accidentally mutating the initial merged object. Likewise, use `...rest` for functions that can take variable arguments instead of using the `arguments` object directly.
 
-```
+```js
 // use destructuring when extracting items from modules or data
 var { classify } = require("./lib/helpers");
 var { key, value } = item;
@@ -103,7 +103,7 @@ var d3 = {
 
 Never concatenate more than two strings together--use a template string instead to do interpolation. However, try to avoid doing large amounts of work inside the template string, and do not use them where a real templating engine would be a better choice (i.e., do not combine template strings with `map()` to build repeated HTML structures, especially if there are conditionals).
 
-```
+```js
 // too much noise
 var translate = "translate(" + margins.left + ", " + margins.top + ")";
 
