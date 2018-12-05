@@ -4,7 +4,7 @@
 
 Broadly speaking, the [Google JS style guide](https://google.github.io/styleguide/jsguide.html) is a reasonable starting place, but it's not dogma.
 
-*Above all, our priority is clarity of intent.* That means naming variables with descriptive, clear names; splitting code into short, reusable modules; and keeping the flow of data clear. By contrast, he kinds of quotes you use, how you put spaces around keywords or objects, or whether you like to declare functions using expressions or variable assignment--none of these things significantly alter the clarity of the code. If there's a style issue that is particularly contentious, we will go with whatever [Prettier](https://prettier.io) emits, and you may want to install its plugin for your editor of choice.
+*Above all, our priority is clarity of intent.* That means naming variables with descriptive, clear names; splitting code into short, reusable modules; and keeping the flow of data clear. By contrast, the kinds of quotes you use, how you put spaces around keywords or objects, or whether you like to declare functions using expressions or variable assignment--none of these things significantly alter the clarity of the code. If there's a style issue that is particularly contentious, we will go with whatever [Prettier](https://prettier.io) emits, and you may want to install its plugin for your editor of choice.
 
 The TL;DR of our style:
 
@@ -12,7 +12,7 @@ The TL;DR of our style:
 * `camelCase`, not `snake_case` for variable names, `SHOUTING_SNAKE_CASE` for constants.
 * End all statements with a semicolon. Do not use comma-first style in object or array literals.
 * Avoid global variables and state whenever possible.
-* We support whatever DM supports for the main site. Currently, this is all modern browsers (IE not included).
+* We support whatever browsers are officially supported for the main site. Currently, this is all modern browsers (IE not included).
 * Prefer clear (even overly-verbose) code over "clever" one-liners and obfuscated syntax.
 
 On the topic of clarity, one place where it is important to be clear is when doing typecasting to and from primitive values. For these, rather than the shorthand operators, it's better to spell out the conversion explicitly. 
@@ -34,7 +34,7 @@ The one place that we may use the shorthand is when converting to an integer, si
 
 ## ES2015+ syntax
 
-We prefer to use new syntax where effective, and where it does not incur a size or speed penalty due to transpilation. The [Babel ES2015 guide](https://babeljs.io/docs/en/learn) is helpful for learning these new features, as well as determining when they will create overly-complicated output code.
+We prefer to use new syntax where it will add expressiveness, and where it does not incur a size or speed penalty due to transpilation. The [Babel ES2015 guide](https://babeljs.io/docs/en/learn) is helpful for learning these new features, as well as determining when they will create overly-complicated output code.
 
 Currently we avoid async/await and generators until support for them is more widespread.
 
@@ -44,19 +44,77 @@ Use these if you're comfortable with them. `var` remains acceptable, if you unde
 
 ### Arrow functions
 
-Arrow functions should primarily be used in two cases: when we want to preserve the value of `this` (i.e., instead of using `Function.bind` or `var self = this;`), or when the function is a single expression (e.g., `d => yScale(d[valueColumn])`). The latter case is particularly useful in D3, or for `map` and `reduce`. If the body expands to multiple lines, use a regular function expression.
+Arrow functions should primarily be used in two cases: when we want to preserve the value of `this`, or when the function is a single expression. The latter case is particularly useful in D3, or for `map` and `reduce`. If the body expands to multiple lines, or if you need to return an object, use a regular function expression.
+
+```
+// use arrows for short, pure functions
+d3Container
+  .select("rect")
+  .data(data)
+  .enter()
+    .append("circle")
+    .attr("fill", d => colorScale(d.label))
+    .attr("x", d => xScale(d.x))
+    .attr("y", d => yScale(d.y));
+
+// Also useful for loops
+elements.forEach(el => el.style.background = "red");
+
+// Returning objects with arrows is hard to read:
+keys.map(key => ({
+  key,
+  value: data[key]
+}));
+
+// use a full function instead
+keys.map(function(key) {
+  var value = data[key];
+  return { key, value };
+});
+```
 
 ### Destructuring, spread, and object literals
 
-When possible, use destructuring to pull out properties from an object or array, especially when there are multiple variables being assigned. This is particularly useful when processing dates (e.g., `var [m, d, y] = date.split("/");`).
+When possible, use destructuring to pull out properties from an object or array, especially when there are multiple variables being assigned.
 
 Likewise, when creating objects, it's preferable to name your variables to match the object and assign them using the literal shorthand (e.g., `var text = "hello, world"; var obj = { text };`).
 
 Use spread instead of `Function.apply` when calling a function with multiple arguments, as it's more readable and doesn't have concerns about assigning the context object. You can also use the object spread instead of `Object.assign()` for combining objects, as it avoids accidentally mutating the initial merged object. Likewise, use `...rest` for functions that can take variable arguments instead of using the `arguments` object directly.
 
+```
+// use destructuring when extracting items from modules or data
+var { classify } = require("./lib/helpers");
+var { key, value } = item;
+
+// destructuring is useful for processing dates
+var [ m, d, y ] = dateString.split("/").map(Number);
+
+// Use spread for variadic functions, or combining objects
+var min = Math.max(...values);
+destinationArray.push(...newItems);
+
+var d3 = {
+  ...require("d3-axis"),
+  ...require("d3-scale")
+};
+```
+
 ### Template strings
 
-Never concatenate more than two strings together--use a template string instead to do interpolation. However, try to avoid doing large amounts of work inside the template string, and do not use them where a real templating engine would be a better choice (i.e., do not combine template strings with `map()` to do looping, especially if there are conditionals).
+Never concatenate more than two strings together--use a template string instead to do interpolation. However, try to avoid doing large amounts of work inside the template string, and do not use them where a real templating engine would be a better choice (i.e., do not combine template strings with `map()` to build repeated HTML structures, especially if there are conditionals).
+
+```
+// too much noise
+var translate = "translate(" + margins.left + ", " + margins.top + ")";
+
+// cleaner
+var translate = `translate(${margins.left}, ${margins.top})`;
+
+// cleanest
+var makeTranslate = (x, y) => `translate(${x}, ${y})`;
+var translate = makeTranslate(margins.left, margins.top);
+
+```
 
 ### Modules
 
@@ -137,10 +195,12 @@ var skipLabels = ["label", "name", "etc"];
 DATA.forEach(function(d) {
   d.values = Object.keys(d)
     .filter(key => skipLabels.indexOf(key) == -1)
-    .map(key => ({
-      key,
-      value: data[k]
-    }));
+    .map(function(key) {
+      return {
+        key,
+        value: data[k]
+      }
+    });
 });
 
 ```
