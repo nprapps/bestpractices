@@ -2,17 +2,20 @@
 
 ## General
 
-Broadly speaking, the [Google JS style guide](https://google.github.io/styleguide/jsguide.html) is a reasonable starting place, but it's not dogma. If inconsistency bothers you, [Prettier](https://prettier.io) can help resolve issues around keyword spacing or line breaks.
+Broadly speaking, the [Google JS style guide](https://google.github.io/styleguide/jsguide.html) is a reasonable starting place, but it's not dogma.
+
+*Above all, our priority is clarity of intent.* That means naming variables with descriptive, clear names; splitting code into short, reusable modules; and keeping the flow of data clear. By contrast, he kinds of quotes you use, how you put spaces around keywords or objects, or whether you like to declare functions using expressions or variable assignment--none of these things significantly alter the clarity of the code. If there's a style issue that is particularly contentious, we will go with whatever [Prettier](https://prettier.io) emits, and you may want to install its plugin for your editor of choice.
 
 The TL;DR of our style:
 
 * Indentation: two spaces, no tabs.
 * `camelCase`, not `snake_case` for variable names, `SHOUTING_SNAKE_CASE` for constants.
 * End all statements with a semicolon. Do not use comma-first style in object or array literals.
-* Avoid global variables whenever possible.
-* We support whatever DM supports for the main site. Currently, this is all modern browsers (not IE).
+* Avoid global variables and state whenever possible.
+* We support whatever DM supports for the main site. Currently, this is all modern browsers (IE not included).
+* Prefer clear (even overly-verbose) code over "clever" one-liners and obfuscated syntax.
 
-One place where it is important to be clear is when doing typecasting to and from primitive values. For these, rather than the shorthand operators, it's better to spell out the conversion explicitly. 
+On the topic of clarity, one place where it is important to be clear is when doing typecasting to and from primitive values. For these, rather than the shorthand operators, it's better to spell out the conversion explicitly. 
 
 ```
 // not this:
@@ -21,7 +24,7 @@ var s = s + "";
 
 // this:
 var n = Number(n);
-var s = s.toString();
+var s = String(s);
 
 // use map for bulk conversions
 var numericalValues = stringValues.map(Number);
@@ -45,9 +48,11 @@ Arrow functions should primarily be used in two cases: when we want to preserve 
 
 ### Destructuring, spread, and object literals
 
-When possible, use destructuring to pull out properties from an object or array, especially when there are multiple variables being assigned. Likewise, when creating objects, it's preferable to name your variables to match the object and assign them using the literal shorthand (e.g., `var text = "hello, world"; var obj = { text };`).
+When possible, use destructuring to pull out properties from an object or array, especially when there are multiple variables being assigned. This is particularly useful when processing dates (e.g., `var [m, d, y] = date.split("/");`).
 
-Use spread instead of `Function.apply` when calling a function with multiple arguments, as it's more readable and doesn't have concerns about assigning the context object. Likewise, use `...rest` for functions that can take variable arguments instead of using the `arguments` object directly.
+Likewise, when creating objects, it's preferable to name your variables to match the object and assign them using the literal shorthand (e.g., `var text = "hello, world"; var obj = { text };`).
+
+Use spread instead of `Function.apply` when calling a function with multiple arguments, as it's more readable and doesn't have concerns about assigning the context object. You can also use the object spread instead of `Object.assign()` for combining objects, as it avoids accidentally mutating the initial merged object. Likewise, use `...rest` for functions that can take variable arguments instead of using the `arguments` object directly.
 
 ### Template strings
 
