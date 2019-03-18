@@ -9,7 +9,7 @@ Broadly speaking, the [Google JS style guide](https://google.github.io/styleguid
 The TL;DR of our style:
 
 * Indentation: two spaces, no tabs.
-* `camelCase`, not `snake_case` for variable names, `SHOUTING_SNAKE_CASE` for constants.
+* `camelCase` (not `snake_case`) for variable names, `SHOUTING_SNAKE_CASE` for constants.
 * End all statements with a semicolon. Do not use comma-first style in object or array literals.
 * Avoid global variables and state whenever possible.
 * We support whatever browsers are officially supported for the main site. Currently, this is all modern browsers (IE not included).
@@ -77,7 +77,7 @@ keys.map(function(key) {
 
 When possible, use destructuring to pull out properties from an object or array, especially when there are multiple variables being assigned.
 
-Likewise, when creating objects, it's preferable to name your variables to match the object and assign them using the literal shorthand (e.g., `var text = "hello, world"; var obj = { text };`).
+Likewise, when creating objects from existing values, it's preferable to name your variables to match the object and assign them using the literal shorthand (e.g., `var text = "hello, world"; var obj = { text };`).
 
 Use spread instead of `Function.apply` when calling a function with multiple arguments, as it's more readable and doesn't have concerns about assigning the context object. You can also use the object spread instead of `Object.assign()` for combining objects, as it avoids accidentally mutating the initial merged object. Likewise, use `...rest` for functions that can take variable arguments instead of using the `arguments` object directly.
 
