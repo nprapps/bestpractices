@@ -24,8 +24,6 @@ Always ensure the following things are documented in the README:
 * Cron jobs that must be installed on the servers. When using the app-template specifying these in the `crontab` file is sufficient.
 * Dependencies that are not part of our standard stack. This includes documenting how to install them. Whenever feasible this documentation should be in the form of `fab` commands.
 
-
-
 ## Naming things
 
 Naming things (variables, files, classes, etc.) consistently and intuitively is one of the hardest problems in computer science. To make it easier, follow these conventions:
@@ -54,36 +52,25 @@ Naming things (variables, files, classes, etc.) consistently and intuitively is 
 ## Version control
 
 * Development of major features should happen on separate branches which periodically merge *from* ``master`` until development of the feature is complete.
-* A ``stable`` branch should always be present and should merge *from* ``master``, only when deploying to production.
-* Don't store binary files (comps, databases) in the repository.
-* If a binary object needs to be shared then store it in Dropbox or on S3. If it is part of the setup process (e.g. a database backup) then use fabric commands to read and write it.
 * **Never, ever store passwords, keys or credentials in any repository.** (Use environment variables instead.)
 
-
+See [git.md](https://github.com/nprapps/bestpractices/blob/master/git.md).
 
 ## Servers
 
 * Environment variables belong in `/etc/environment`. This file should be sourced by cron jobs. (This happens automatically when using `run_on_server.sh`.)# git
 
-
-
 ## HTML and CSS
 
 See [html_and_css.md](https://github.com/nprapps/bestpractices/blob/master/html_and_css.md).
-
-
 
 ## Javascript
 
 See [javascript.md](https://github.com/nprapps/bestpractices/blob/master/javascript.md).
 
-
-
 ## Python
 
 See [python.md](https://github.com/nprapps/bestpractices/blob/master/python.md).
-
-
 
 ## Assets
 
