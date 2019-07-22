@@ -21,3 +21,4 @@ When working in a repo, you should commit code fairly regularly. To keep from cr
 1. `git status` to check that there aren't any spurious deletions or oddities.
 1. Finally, `git commit` to add changes and `git push` to send them to the remote repo.
 
+We strongly recommend using a GUI client for GitHub to simplify this process. Using the [GitHub Desktop](https://desktop.github.com) app, for example, you'll always have a diff view of your current changes before committing, which means it'll be obvious if you are accidentally about to erase data with a commit. It's also simpler to right-click and revert individual files, or create a complete revert commit to undo a bad merge.
