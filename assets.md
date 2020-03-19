@@ -11,6 +11,14 @@
 * Voice should be encoded as 96bps CBR Mono:
     * MP3: `lame -m m -b 96 input.wav output.mp3`
 
+### Photo
+
+You can resize images on the command line with ImageMagick. This script (borrowed from the [Ellicott City](https://github.com/nprapps/ellicott-city#snippets) project) will look at all the JPGs in a folder and saved the resized versions in a `resized` folder:
+
+```
+for f in *.jpg; do convert $f -quality 75 -resize 1600x1200\> -strip -sampling-factor 4:2:0 -define jpeg:dct-method=float -interlace Plane resized/$f; done
+```
+
 ### Video
 
 Video encoding depends on the role of the video in a project--ambient video (such as animated backdrops) should be much smaller, because the user doesn't have a choice about playback. On-demand video can be much larger--but consider uploading it to a hosting service like YouTube instead of manually encoding, since those will automatically size and compress for different screen sizes and bandwidth requirements.
