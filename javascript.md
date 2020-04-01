@@ -132,7 +132,7 @@ var [first, second] = await Promise.all([
 
 In the case of the fetch API and other native async functions, the API may involve several awaited steps. In this case, it's better to either break this out into several steps, or use a small `then()` function to encapsulate the intermediate steps. Do not abuse parentheses to create `await` one-liners.
 
-```
+```js
 // this is hard to read/reason about
 var data = await (await fetch("json")).json();
 
