@@ -36,8 +36,6 @@ The one place that we may use the shorthand is when converting to an integer, si
 
 We prefer to use new syntax where it will add expressiveness, and where it does not incur a size or speed penalty due to transpilation. The [Babel ES2015 guide](https://babeljs.io/docs/en/learn) is helpful for learning these new features, as well as determining when they will create overly-complicated output code.
 
-Currently we avoid async/await and generators until support for them is more widespread.
-
 ### `let` and `const`
 
 Use these if you're comfortable with them. `var` remains acceptable, if you understand the quirks around its scoping. All variable should be declared with one of the three--never use the global assignment form, and try not to use global state if possible.
@@ -114,6 +112,36 @@ var translate = `translate(${margins.left}, ${margins.top})`;
 var makeTranslate = (x, y) => `translate(${x}, ${y})`;
 var translate = makeTranslate(margins.left, margins.top);
 
+```
+
+### Async/await and generators
+
+We have recently started using `async`/`await`, particularly in combination with `fetch`. These keywords essentially "unwrap" a promise so that your code can be written in execution order. Whenever possible, use this to make your code flow more clear. However, be careful of cases where these keywords will cause your code to behave sequentially if parallel behavior would be more effective.
+
+```js
+// unintended sequential downloads
+var first = await fetch("first.json");
+var second = await fetch("second.json");
+
+// use destructuring and Promise.all to parallelize
+var [first, second] = await Promise.all([
+  fetch("first.json"),
+  fetch("second.json")
+]);
+```
+
+In the case of the fetch API and other native async functions, the API may involve several awaited steps. In this case, it's better to either break this out into several steps, or use a small `then()` function to encapsulate the intermediate steps. Do not abuse parentheses to create `await` one-liners.
+
+```
+// this is hard to read/reason about
+var data = await (await fetch("json")).json();
+
+// this is easier to read
+var response = await fetch("json");
+var data = await response.json();
+
+// a reasonable compromise, using the actual promise
+var data = await fetch("json").then(r => r.json());
 ```
 
 ### Modules
