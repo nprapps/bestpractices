@@ -16,7 +16,7 @@
 You can resize images on the command line with ImageMagick. This script (borrowed from the [Ellicott City](https://github.com/nprapps/ellicott-city#snippets) project) will look at all the JPGs in a folder and saved the resized versions in a `resized` folder:
 
 ```
-for f in *.jpg; do convert $f -quality 75 -resize 1600x1200\> -strip -sampling-factor 4:2:0 -define jpeg:dct-method=float -interlace Plane resized/$f; done
+for f in *.jpg; do magick $f -quality 75 -resize 1600x1200\> -strip -sampling-factor 4:2:0 -define jpeg:dct-method=float -interlace Plane resized/$f; done
 ```
 
 ### Video
